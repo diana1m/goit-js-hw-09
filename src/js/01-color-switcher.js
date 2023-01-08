@@ -14,11 +14,16 @@ const startBtn = document.querySelector("button[data-start]");
 const stopBtn = document.querySelector("button[data-stop]");
 let timerId = null;
 
+stopBtn.disabled = true; 
+console.log("djfjjfjsd");
+
 startBtn.addEventListener("click", () => {
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
     timerId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
-        startBtn.disabled = true;
-        stopBtn.disabled = false;
+        // startBtn.disabled = true;
+        
     }, 1000);
 });
 
