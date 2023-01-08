@@ -34,17 +34,15 @@ startBtn.addEventListener('click', () => {
   const intervalId = setInterval(()=>{
     const dateNow = new Date ();
     const ms = saveSelectDate - dateNow;
-    if (ms >= 0 ){
-      const result = convertMs(ms);
-      dataDays.textContent = addLeadingZero(result.days);
-      dataHours.textContent = addLeadingZero(result.hours);
-      dataMinutes.textContent = addLeadingZero(result.minutes);
-      dataSeconds.textContent = addLeadingZero(result.seconds);
-    }
+    const result = convertMs(ms);
+    dataDays.textContent = addLeadingZero(result.days);
+    dataHours.textContent = addLeadingZero(result.hours);
+    dataMinutes.textContent = addLeadingZero(result.minutes);
+    dataSeconds.textContent = addLeadingZero(result.seconds);
+    if (ms <= 1000){
+        clearInterval(intervalId);
+      }
   }, 1000)
-  // if (ms < 0){
-  //   clearInterval(intervalId);
-  // }
 })
 
 
