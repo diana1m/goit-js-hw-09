@@ -15,7 +15,6 @@ const stopBtn = document.querySelector("button[data-stop]");
 let timerId = null;
 
 stopBtn.disabled = true; 
-console.log("djfjjfjsd");
 
 startBtn.addEventListener("click", () => {
     startBtn.disabled = true;

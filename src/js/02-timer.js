@@ -31,15 +31,20 @@ const options = {
 flatpickr("input#datetime-picker", options);
 
 startBtn.addEventListener('click', () => {
-  setInterval(()=>{
+  const intervalId = setInterval(()=>{
     const dateNow = new Date ();
     const ms = saveSelectDate - dateNow;
-    const result = convertMs(ms);
-    dataDays.textContent = addLeadingZero(result.days);
-    dataHours.textContent = addLeadingZero(result.hours);
-    dataMinutes.textContent = addLeadingZero(result.minutes);
-    dataSeconds.textContent = addLeadingZero(result.seconds);
+    if (ms >= 0 ){
+      const result = convertMs(ms);
+      dataDays.textContent = addLeadingZero(result.days);
+      dataHours.textContent = addLeadingZero(result.hours);
+      dataMinutes.textContent = addLeadingZero(result.minutes);
+      dataSeconds.textContent = addLeadingZero(result.seconds);
+    }
   }, 1000)
+  // if (ms < 0){
+  //   clearInterval(intervalId);
+  // }
 })
 
 
